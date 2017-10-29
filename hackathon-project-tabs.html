@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.facebookFeed{
+     float: left;
+     padding: 10px;
+     width: 33%;
+     height: 100vh;
+}
+.twitterFeed{
+     float: left;
+     padding: 10px;
+     width: 33%;
+     height: 100vh;
+}
+.instagramFeed{
+     float: left;
+     padding: 10px;
+     width: 33%;
+     height: 100vh;
+
+}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>jQuery Example</title>
+  <script>
+    $(document).ready(function() {
+      $(document).ready(function() {
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+    FB.init({
+      appId: '{your-app-id}',
+      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
+    });     
+    $('#loginbutton,#feedbutton').removeAttr('disabled');
+    FB.getLoginStatus(updateStatusCallback);
+  });
+});
+    });
+</script>
+  
+</head>
+<body>
+
+<p>#IDFSupport #Litbuckets</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Feeds')">Feeds</button>
+  <button class="tablinks" onclick="openCity(event, 'Donations')">Donations</button>
+  <button class="tablinks" onclick="openCity(event, 'Stories')">Stories</button>
+</div>
+
+<div id="Feeds" class="tabcontent">
+<div class="conatiner">
+  <div class="facebookFeed">
+    <h2>Facebook Feed</h2>
+
+	<div class="fb-page" data-href="https://www.facebook.com/IDFSupport-123785381617560/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/IDFSupport-123785381617560/" class="fb-xfbml-parse-ignore">
+	<a href="https://www.facebook.com/IDFSupport-123785381617560/">Facebook</a>
+	</blockquote>
+	</div>
+
+  </div>
+  <div class="twitterFeed">
+    <h2>Twitter Feed</h2>
+        <a class="twitter-timeline"  href="https://twitter.com/hashtag/IDFsupport" data-widget-id="924508350901116929">#IDFsupport Tweets</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          
+          
+  </div>
+  <div class="instagramFeed">
+    <h2>Instagram Feed</h2>
+		<a href="https://instawidget.net/v/tag/IDFSupport" id="link-a42b154d855ae2cc60821fb44984b429e14950dffcbef3bdc879555b580cec0a">#IDFSupport</a>
+		<script src="https://instawidget.net/js/instawidget.js?u=a42b154d855ae2cc60821fb44984b429e14950dffcbef3bdc879555b580cec0a&width=300px"></script>
+
+  </div>
+</div>
+</div>
+
+<div id="Donations" class="tabcontent">
+  <h3>Donations</h3>
+  <p>A tab for donations</p> 
+</div>
+
+<div id="Stories" class="tabcontent">
+  <h3>Stories</h3>
+  <p>A tab for sappy soldier stories</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+     
+</body>
+</html> 
